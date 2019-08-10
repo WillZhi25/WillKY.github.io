@@ -48,9 +48,9 @@
     <link href="http://yoursite.com/2019/01/28/about/"/>
     <id>http://yoursite.com/2019/01/28/about/</id>
     <published>2019-01-28T09:15:59.934Z</published>
-    <updated>2019-08-10T07:57:21.675Z</updated>
+    <updated>2019-08-10T08:26:14.411Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="技术领域"><a href="#技术领域" class="headerlink" title="技术领域"></a>技术领域</h1><ul><li>PHP</li><li>iOS </li><li>Flutter</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="技术领域"><a href="#技术领域" class="headerlink" title="技术领域"></a>技术领域</h1><ul><li>PHP</li><li>iOS</li><li>Flutter  </li></ul><h1 id="从事过的行业"><a href="#从事过的行业" class="headerlink" title="从事过的行业"></a>从事过的行业</h1><ul><li>教育</li><li>金融</li><li>游戏</li><li>电商</li></ul>]]></content>
     
     <summary type="html">
     
@@ -58,18 +58,16 @@
       
         &lt;h1 id=&quot;技术领域&quot;&gt;&lt;a href=&quot;#技术领域&quot; class=&quot;headerlink&quot; title=&quot;技术领域&quot;&gt;&lt;/a&gt;技术领域&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;PHP&lt;/li&gt;
-&lt;li&gt;iOS &lt;/li&gt;
-&lt;li&gt;Flutter&lt;/li&gt;
+&lt;li&gt;iOS&lt;/li&gt;
+&lt;li&gt;Flutter  &lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;h1 id=&quot;从
       
     
     </summary>
     
     
-      <category term="关于我" scheme="http://yoursite.com/tags/%E5%85%B3%E4%BA%8E%E6%88%91/"/>
-    
-      <category term="Will" scheme="http://yoursite.com/tags/Will/"/>
+      <category term="机智的手哥" scheme="http://yoursite.com/tags/%E6%9C%BA%E6%99%BA%E7%9A%84%E6%89%8B%E5%93%A5/"/>
     
   </entry>
   
