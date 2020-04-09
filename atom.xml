@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://willky.github.io/"/>
-  <updated>2020-04-09T04:53:36.448Z</updated>
+  <updated>2019-08-10T08:09:28.000Z</updated>
   <id>https://willky.github.io/</id>
   
   <author>
@@ -15,34 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>关于我</title>
-    <link href="https://willky.github.io/2019/08/10/about/"/>
-    <id>https://willky.github.io/2019/08/10/about/</id>
-    <published>2019-08-10T08:26:14.000Z</published>
-    <updated>2020-04-09T04:53:36.448Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="技术领域"><a href="#技术领域" class="headerlink" title="技术领域"></a>技术领域</h1><ul><li>PHP</li><li>iOS</li><li>java</li></ul>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;技术领域&quot;&gt;&lt;a href=&quot;#技术领域&quot; class=&quot;headerlink&quot; title=&quot;技术领域&quot;&gt;&lt;/a&gt;技术领域&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;PHP&lt;/li&gt;
-&lt;li&gt;iOS&lt;/li&gt;
-&lt;li&gt;java&lt;/li&gt;
-&lt;/ul&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="手哥" scheme="https://willky.github.io/tags/%E6%89%8B%E5%93%A5/"/>
-    
-  </entry>
   
   <entry>
     <title>laravel中使用redis哨兵模式</title>
@@ -96,6 +68,34 @@
       <category term="redis" scheme="https://willky.github.io/tags/redis/"/>
     
       <category term="集群" scheme="https://willky.github.io/tags/%E9%9B%86%E7%BE%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于我</title>
+    <link href="https://willky.github.io/2014/03/01/about/"/>
+    <id>https://willky.github.io/2014/03/01/about/</id>
+    <published>2014-03-01T10:07:47.000Z</published>
+    <updated>2020-04-09T05:03:17.127Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="技术领域"><a href="#技术领域" class="headerlink" title="技术领域"></a>技术领域</h1><ul><li>PHP</li><li>iOS</li><li>java</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;技术领域&quot;&gt;&lt;a href=&quot;#技术领域&quot; class=&quot;headerlink&quot; title=&quot;技术领域&quot;&gt;&lt;/a&gt;技术领域&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;PHP&lt;/li&gt;
+&lt;li&gt;iOS&lt;/li&gt;
+&lt;li&gt;java&lt;/li&gt;
+&lt;/ul&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="手哥" scheme="https://willky.github.io/tags/%E6%89%8B%E5%93%A5/"/>
     
   </entry>
   
