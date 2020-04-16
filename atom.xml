@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://willky.github.io/"/>
-  <updated>2020-04-16T14:38:03.074Z</updated>
+  <updated>2020-04-16T14:48:58.016Z</updated>
   <id>https://willky.github.io/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://willky.github.io/2019/11/01/ios13/"/>
     <id>https://willky.github.io/2019/11/01/ios13/</id>
     <published>2019-11-01T12:09:06.000Z</published>
-    <updated>2020-04-16T14:38:03.074Z</updated>
+    <updated>2020-04-16T14:48:58.016Z</updated>
     
-    <content type="html"><![CDATA[<p>打开 Layout 的属于编辑界面，修改如图：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://willky.github.io/img/ios13@2x.ong" alt="ios13" title="">                </div>                <div class="image-caption">ios13</div>            </figure>]]></content>
+    <content type="html"><![CDATA[<p>打开 Layout 的属于编辑界面，修改如图：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://raw.githubusercontent.com/WillKY/WillKY.github.io/master/img/ios13%402x.png" alt="ios13" title="">                </div>                <div class="image-caption">ios13</div>            </figure>]]></content>
     
     <summary type="html">
     
