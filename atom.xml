@@ -70,34 +70,6 @@
   </entry>
   
   <entry>
-    <title>iOS 13 UICollectionView 布局错乱问题</title>
-    <link href="https://willky.github.io/2019/11/01/ios13/"/>
-    <id>https://willky.github.io/2019/11/01/ios13/</id>
-    <published>2019-11-01T12:09:06.000Z</published>
-    <updated>2020-04-16T14:48:58.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>打开 Layout 的属于编辑界面，修改如图：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://raw.githubusercontent.com/WillKY/WillKY.github.io/master/img/ios13%402x.png" alt="ios13" title="">                </div>                <div class="image-caption">ios13</div>            </figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;打开 Layout 的属于编辑界面，修改如图：&lt;/p&gt;
-&lt;figure class=&quot;image-bubble&quot;&gt;
-                &lt;div class=&quot;img-lightbox&quot;&gt;
-                    &lt;div class=&quot;over
-      
-    
-    </summary>
-    
-    
-      <category term="UICollectionView" scheme="https://willky.github.io/tags/UICollectionView/"/>
-    
-      <category term="iOS 13" scheme="https://willky.github.io/tags/iOS-13/"/>
-    
-  </entry>
-  
-  <entry>
     <title>laravel中使用redis哨兵模式</title>
     <link href="https://willky.github.io/2019/05/08/laravel%E4%B8%AD%E4%BD%BF%E7%94%A8redis%E5%93%A8%E5%85%B5%E6%A8%A1%E5%BC%8F/"/>
     <id>https://willky.github.io/2019/05/08/laravel中使用redis哨兵模式/</id>
@@ -149,6 +121,34 @@
       <category term="redis" scheme="https://willky.github.io/tags/redis/"/>
     
       <category term="集群" scheme="https://willky.github.io/tags/%E9%9B%86%E7%BE%A4/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>iOS 13 UICollectionView 布局错乱问题</title>
+    <link href="https://willky.github.io/2019/01/01/ios13/"/>
+    <id>https://willky.github.io/2019/01/01/ios13/</id>
+    <published>2019-01-01T12:09:06.000Z</published>
+    <updated>2020-12-09T16:14:36.692Z</updated>
+    
+    <content type="html"><![CDATA[<p>打开 Layout 的属于编辑界面，修改如图：</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://raw.githubusercontent.com/WillKY/WillKY.github.io/master/img/ios13%402x.png" alt="ios13" title="">                </div>                <div class="image-caption">ios13</div>            </figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;打开 Layout 的属于编辑界面，修改如图：&lt;/p&gt;
+&lt;figure class=&quot;image-bubble&quot;&gt;
+                &lt;div class=&quot;img-lightbox&quot;&gt;
+                    &lt;div class=&quot;over
+      
+    
+    </summary>
+    
+    
+      <category term="UICollectionView" scheme="https://willky.github.io/tags/UICollectionView/"/>
+    
+      <category term="iOS 13" scheme="https://willky.github.io/tags/iOS-13/"/>
     
   </entry>
   
