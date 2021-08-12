@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>mongodb 使用 | Will 的博客</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#ffffff">
+    
+    
+    <meta name="keywords" content="spring boot,mvn,mongodb">
+    <meta name="description" content="前言目前已经有部份业务开始使用mongodb 作为存储方式，为了方便大家后续使用故此写下一些经验总结. 一、maven 导入123456&amp;lt;!-- mongodb start --&amp;gt;&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;sprin">
+<meta name="keywords" content="spring boot,mvn,mongodb">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mongodb 使用">
+<meta property="og:url" content="https://willky.github.io/2021/05/08/Mongodb 初使用/index.html">
+<meta property="og:site_name" content="Will 的博客">
+<meta property="og:description" content="前言目前已经有部份业务开始使用mongodb 作为存储方式，为了方便大家后续使用故此写下一些经验总结. 一、maven 导入123456&amp;lt;!-- mongodb start --&amp;gt;&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;sprin">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2021-06-23T02:11:24.047Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="mongodb 使用">
+<meta name="twitter:description" content="前言目前已经有部份业务开始使用mongodb 作为存储方式，为了方便大家后续使用故此写下一些经验总结. 一、maven 导入123456&amp;lt;!-- mongodb start --&amp;gt;&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;sprin">
+    
+        <link rel="alternate" type="application/atom+xml" title="Will 的博客" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Will</h5>
+          <a href="mailto:245666044@qq.com" title="245666044@qq.com" class="mail">245666044@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/willky" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">mongodb 使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">mongodb 使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2021-05-08T14:37:46.000Z" itemprop="datePublished" class="page-time">
+  2021-05-08
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、maven-导入"><span class="post-toc-number">2.</span> <span class="post-toc-text">一、maven 导入</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、配置"><span class="post-toc-number">3.</span> <span class="post-toc-text">二、配置</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、代码示例"><span class="post-toc-number">4.</span> <span class="post-toc-text">三、代码示例</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、索引"><span class="post-toc-number">5.</span> <span class="post-toc-text">四、索引</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Mongodb 初使用" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">mongodb 使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2021-05-08 22:37:46" datetime="2021-05-08T14:37:46.000Z" itemprop="datePublished">2021-05-08</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>目前已经有部份业务开始使用mongodb 作为存储方式，为了方便大家后续使用故此写下一些经验总结.</p>
+<h1 id="一、maven-导入"><a href="#一、maven-导入" class="headerlink" title="一、maven 导入"></a>一、maven 导入</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- mongodb start --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-data-mongodb&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;!-- mongodb end --&gt;</span><br></pre></td></tr></table></figure>
+<h1 id="二、配置"><a href="#二、配置" class="headerlink" title="二、配置"></a>二、配置</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  data:</span><br><span class="line">    mongodb:</span><br><span class="line">      uri: mongodb://192.168.1.29:27017/pp_data</span><br></pre></td></tr></table></figure>
+<h1 id="三、代码示例"><a href="#三、代码示例" class="headerlink" title="三、代码示例"></a>三、代码示例</h1><p>1、Bean 类注入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@Autowired</span><br><span class="line">private MongoTemplate mongoTemplate;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>新增</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongoTemplate.insert(entity);</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li>更新或新增</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 条件</span><br><span class="line">Query query = new Query();</span><br><span class="line">query.addCriteria(Criteria.where(&quot;userId&quot;).is(item.getUserId()));</span><br><span class="line">query.addCriteria(Criteria.where(&quot;date&quot;).is(date));</span><br><span class="line">// 需要更新或者插入的数据</span><br><span class="line">Update update = new Update();</span><br><span class="line">update.set(&quot;sysUpdateTime&quot;, TimeUtils.getCurrentTimeOfMilli());</span><br><span class="line">// 执行</span><br><span class="line">mongoTemplate.upsert(query, update, BuyerTagsEntity.class);</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>更新一条记录/多条记录</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">String date = TimeUtil.getDate(0);</span><br><span class="line">// 条件组装</span><br><span class="line">Query query = new Query();</span><br><span class="line">query.addCriteria(Criteria.where(&quot;userId&quot;).is(userId));</span><br><span class="line">query.addCriteria(Criteria.where(&quot;ymd&quot;).is(Integer.parseInt(date)));</span><br><span class="line"></span><br><span class="line">Update update = new Update();</span><br><span class="line">// 对list 批量更新</span><br><span class="line">Update.PushOperatorBuilder pushOperatorBuilder = update.push(&quot;goodsIdList&quot;);</span><br><span class="line">pushOperatorBuilder.each(goodsIdList.toArray(new Long[0]));</span><br><span class="line">// 更新某个字段</span><br><span class="line">update.set(&quot;sysUpdateTime&quot;, TimeUtils.getCurrentTimeOfMilli());</span><br><span class="line">// 只更新一条</span><br><span class="line">mongoTemplate.updateFirst(query, update, AiRecGoodsDistanceRecordEntity.class);</span><br><span class="line">// 更新多条</span><br><span class="line">mongoTemplate.updateMulti(query, update, AiRecGoodsDistanceRecordEntity.class);</span><br></pre></td></tr></table></figure>
+<ol start="5">
+<li>删除</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">Query query = new Query();</span><br><span class="line">query.addCriteria(Criteria.where(&quot;date&quot;).is(date));</span><br><span class="line">mongoTemplate.remove(query, BuyerTagsEntity.class);</span><br></pre></td></tr></table></figure>
+<ol start="6">
+<li>对list 字段内容进行删除</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">String date = TimeUtil.getDate(0);</span><br><span class="line">Query query = new Query();</span><br><span class="line">query.addCriteria(Criteria.where(&quot;userId&quot;).is(userId));</span><br><span class="line">query.addCriteria(Criteria.where(&quot;ymd&quot;).is(Integer.parseInt(date)));</span><br><span class="line"></span><br><span class="line">Update update = new Update()</span><br><span class="line">		// 要删除的数据</span><br><span class="line">        .pullAll(&quot;goodsIdList&quot;, goodsIdList.toArray(new Long[0]))</span><br><span class="line">        .set(&quot;sysUpdateTime&quot;, TimeUtils.getCurrentTimeOfMilli());</span><br><span class="line"></span><br><span class="line">mongoTemplate.updateFirst(query, update, AiRecGoodsDistanceRecordEntity.class);</span><br></pre></td></tr></table></figure>
+<p>7.对单个嵌套文档进行更新（注：这种写法只会更新嵌套文档的第一个。建议用8）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">// 查询条件</span><br><span class="line">Query query = new Query();</span><br><span class="line">query.addCriteria(</span><br><span class="line">        Criteria.where(&quot;userId&quot;).is(userId)</span><br><span class="line">                .and(&quot;storeId&quot;).is(storeId)</span><br><span class="line">                // 嵌套文档查询条件</span><br><span class="line">                .and(&quot;goodsInfoList.status&quot;).is(beforeStatus)</span><br><span class="line">                .and(&quot;goodsInfoList.txId&quot;).is(beforeTxId)</span><br><span class="line">                .and(&quot;goodsInfoList.branchId&quot;).is(beforeBranchId)</span><br><span class="line">                .and(&quot;goodsInfoList.goodsId&quot;).is(goodsId)</span><br><span class="line">);</span><br><span class="line">CartInfoEntity one = mongoTemplate.findOne(query, CartInfoEntity.class);</span><br><span class="line">// 更新内容</span><br><span class="line">Update update = new Update()</span><br><span class="line">        // 所有内嵌文档更新</span><br><span class="line">        .set(&quot;goodsInfoList.$.txId&quot;, txId)</span><br><span class="line">        .set(&quot;goodsInfoList.$.branchId&quot;, branchId)</span><br><span class="line">        .set(&quot;goodsInfoList.$.status&quot;, afterStatus)</span><br><span class="line">        .set(&quot;sysUpdateTime&quot;, TimeUtils.getCurrentTimeOfMilli());</span><br><span class="line">UpdateResult updateResult = mongoTemplate.updateMulti(query, update, CartInfoEntity.class);</span><br></pre></td></tr></table></figure>
+<p>8.对多个嵌套文档并过滤进行更新</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">// 查询条件</span><br><span class="line">Bson filtersBson = Filters.and(</span><br><span class="line">        Filters.eq(&quot;userId&quot;, cartGoodsDeleteQuery.getUserId()),</span><br><span class="line">        // 嵌套文档的字段写法</span><br><span class="line">        Filters.eq(&quot;goodsInfoList.status&quot;, CartGoodsInfoStatusEnums.NORMAL.getCode()),</span><br><span class="line">        Filters.eq(&quot;goodsInfoList.txId&quot;, 0L),</span><br><span class="line">        Filters.eq(&quot;goodsInfoList.branchId&quot;, 0L),</span><br><span class="line">        Filters.in(&quot;goodsInfoList.goodsId&quot;, cartGoodsDeleteQuery.getGoodsIds())</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">// 更新内容</span><br><span class="line">Bson updatesBsonList = Updates.combine(</span><br><span class="line">        // 内嵌文档循环别名 “e”</span><br><span class="line">        Updates.set(&quot;goodsInfoList.$[e].txId&quot;, cartGoodsDeleteQuery.getTxId()),</span><br><span class="line">        Updates.set(&quot;goodsInfoList.$[e].branchId&quot;, cartGoodsDeleteQuery.getBranchId()),</span><br><span class="line">        Updates.set(&quot;goodsInfoList.$[e].status&quot;, cartGoodsDeleteQuery.getChangeStatus()),</span><br><span class="line">        Updates.set(&quot;sysUpdateTime&quot;, TimeUtils.getCurrentTimeOfMilli())</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">// 相当于where条件，goodsId在这个列表内才更新</span><br><span class="line">UpdateOptions arrayFiltersBsonList = new UpdateOptions().arrayFilters(</span><br><span class="line">        Collections.singletonList(</span><br><span class="line">                // 存在该goodsId的内嵌文档才进行更新</span><br><span class="line">                Filters.in(&quot;e.goodsId&quot;, cartGoodsDeleteQuery.getGoodsIds())</span><br><span class="line">        )</span><br><span class="line">);</span><br><span class="line">// 更新多个</span><br><span class="line">UpdateResult updateResult = getCollectionDocument().updateMany(filtersBson, updatesBsonList, arrayFiltersBsonList);</span><br></pre></td></tr></table></figure>
+<h1 id="四、索引"><a href="#四、索引" class="headerlink" title="四、索引"></a>四、索引</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">@Data</span><br><span class="line">@Document(collection = MongodbConstant.COLLECTION_TAGS_BUYER_TAGS)</span><br><span class="line">@CompoundIndexes(&#123;</span><br><span class="line">        @CompoundIndex(name = &quot;idx_user_date&quot;, def = &quot;&#123;&apos;userId&apos;: -1, &apos;date&apos;: -1&#125;&quot;)// 联合索引</span><br><span class="line">        // @CompoundIndex(name = &quot;idx_user&quot;, def = &quot;&#123;&apos;userId&apos;: -1&#125;&quot;, unique = true)// 唯一索引</span><br><span class="line">&#125;)</span><br><span class="line">public class BuyerTagsEntity implements Serializable &#123;</span><br><span class="line"></span><br><span class="line">    private static final long serialVersionUID = 4186877053555563977L;</span><br><span class="line">    @Id</span><br><span class="line">    private String id;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 用户id</span><br><span class="line">     */</span><br><span class="line">    @Indexed(name = &quot;idx_user_id&quot;, unique = true) // 唯一索引</span><br><span class="line">    private Long userId;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 时间</span><br><span class="line">     */</span><br><span class="line">    @Indexed(name = &quot;idx_date&quot;) // 单字段索引</span><br><span class="line">    private String date;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 标签</span><br><span class="line">     */</span><br><span class="line">    private List&lt;String&gt; tags;</span><br><span class="line"></span><br><span class="line">    /**</span><br><span class="line">     * 更新时间</span><br><span class="line">     */</span><br><span class="line">    private Long sysUpdateTime;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+
+        
+        转载请注明来源 <a href="/2021/05/08/Mongodb 初使用/" target="_blank" rel="external">https://willky.github.io/2021/05/08/Mongodb 初使用/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://willky.github.io">
+            <img src="/img/avatar.png" alt="Will">
+            Will
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mongodb/">mongodb</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mvn/">mvn</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/spring-boot/">spring boot</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2021/02/05/ES 修改 max_result_window/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">ES 修改 max_result_window</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: '',
+            repo: '',
+            oauth: {
+                client_id: '',
+                client_secret: '',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢你的赞赏
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Will &copy; 2013 - 2021</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = 'Will的技术博客';
+            clearTimeout(titleTime);
+        } else {
+            document.title = 'Will的技术博客';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
